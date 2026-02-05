@@ -78,6 +78,14 @@ export const Header: React.FC<HeaderProps> = ({ info }) => {
           </a>
         </div>
       </div>
+      {info.about && (
+        <div className="mt-10 pt-10 border-t border-slate-120">
+          <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">About</h3>
+          <p className="text-slate-700 leading-relaxed text-justify max-w-4xl">
+            {info.about}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
