@@ -1,4 +1,4 @@
-import { PersonalInfo, ResearchExperience, Education, Publication, Skills, Course, Award } from './types';
+import { PersonalInfo, ResearchExperience, Education, Publication, Skills, Course, Award, ResearchInterest } from './types';
 
 export const personalInfo: PersonalInfo = {
   name: "R. Sridhar",
@@ -17,14 +17,25 @@ export const education: Education[] = [
     degree: "M.Sc. Chemistry",
     institution: "Pondicherry University, India",
     year: "2023 - 2025",
+    logo: "./PondiUni.png",
     details: ["Final Grade: 8.75 (CGPA)", "EQF level 7", "University Merit Scholarship (3rd Rank)"]
   },
   {
     degree: "B.Sc. Chemistry",
     institution: "St. Joseph's College, Tiruchirappalli, India",
     year: "2020 - 2023",
+    logo: "./sjc_logo.png",
     details: ["Final Grade: 8.38 (CGPA)", "EQF level 6", "Sports team Captain (Ball Badminton)"]
   }
+];
+
+export const researchInterests: ResearchInterest[] = [
+  { name: "Synthetic Organic Chemistry", icon: "fa-flask" },
+  { name: "Catalysis & Reaction Mechanisms", icon: "fa-atom" },
+  { name: "Carbohydrate Chemistry", icon: "fa-cubes" },
+  { name: "Green Chemistry", icon: "fa-leaf" },
+  { name: "Medicinal Chemistry", icon: "fa-capsules" },
+  { name: "Computational Studies", icon: "fa-laptop" }
 ];
 
 export const researchExperience: ResearchExperience[] = [
