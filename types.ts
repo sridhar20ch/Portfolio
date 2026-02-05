@@ -7,6 +7,7 @@ export interface PersonalInfo {
   orcid: string;
   twitter: string;
   photo: string;
+  about: string;
 }
 
 export interface ResearchExperience {
