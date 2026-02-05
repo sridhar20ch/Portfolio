@@ -95,13 +95,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+        const { useState, useEffect } = React;
 
         // --- Data Constants ---
         
@@ -113,8 +112,8 @@
           linkedin: "https://www.linkedin.com/in/sridhar-r-chem/",
           orcid: "https://orcid.org/0009-0001-3602-6240",
           twitter: "https://x.com/Sridhar20ch",
-          // Update this filename to match your local image file
-          photo: "photo.jpg" 
+          // Replace with your actual photo file name
+          photo: "./profile.jpg",
           about: "I am a chemistry graduate trained in synthetic organic chemistry with a strong interest in catalysis and reaction mechanisms. My Master’s thesis focused on developing a cost-efficient synthesis of the deoxy sugar D-rhamnal from D-glucose, emphasizing step economy and minimal purification. This work strengthened my skills in reaction design, problem-solving, and independent laboratory research. I am particularly motivated by research that links molecular structure to reactivity and sustainability, especially in enzyme-inspired catalytic systems. Alongside my academic training, my experience as a collegiate sports team captain has shaped my leadership, teamwork, and persistence in collaborative research settings. I am now seeking PhD training to deepen my mechanistic understanding and contribute original research in chemistry."
         };
 
@@ -132,7 +131,7 @@
             details: ["Final Grade: 8.38 (CGPA)", "EQF level 6", "Sports team Captain (Ball Badminton)"]
           }
         ];
-        
+
         const researchExperience = [
           {
             role: "Master's Thesis",
@@ -225,20 +224,39 @@
           }
         ];
 
-        const honorsAndAwards = [
-          "Qualified National Examinations: GATE 2025 (CY) and CSIR-NET June 25 (PhD Only).",
-          "Merit Cum Means Scholarship – Pondicherry University; awarded for outstanding performance in M.Sc. Chemistry.",
-          "Awards: Special Award for Sports and Games at Achievers Day, St. Joseph's College (2023).",
-          "Consecutive Winner in Inter-Collegiate Ball Badminton Tournament, Bharathidasan University (2022, 2023).",
-          "Prof. A. C. Joseph Medal at the 178th College Day, St. Joseph's College (2022)."
-        ];
-
         const conferences = [
           "International Conference on Frontiers in Chemical Sciences (ICFCS 2025) – Participant & Student volunteer",
           "National Conference on Recent Advancements in Chemistry and Environmental Sciences (RACES 2024) – Participant.",
           "Indo-ASEAN Symposium on Organic Synthesis and Medicinal Chemistry (NOV 2024) - Participant.",
           "One day National Workshop on Green Hydrogen: Technology to Application (DEC 2024) - Participant.",
           "One day Workshop on Scientific Writing & Ethics in Enhancing Publications (SWEEP 2024) - Participant"
+        ];
+
+        const honorsAndAwards = [
+          {
+            title: "Qualified National Examinations",
+            items: [
+              "Graduate Aptitude Test in Engineering (CY) - 2025",
+              "Counsil of Scientific and Industrial Research - National Eligibility Test (CSIR-NET) - (PhD Only) - June 2025",
+              "Central University Entrance Test (CY) - 2023"
+            ]
+          },
+          {
+            title: "Awards",
+            items: [
+              "Special Award for Sports and Games at Achievers Day, St. Joseph's College (2023).",
+              "Consecutive Winner in Inter-Collegiate Ball Badminton Tournament, Bharathidasan University (2022, 2023).",
+              "Prof. A. C. Joseph Medal at the 178th College Day, St. Joseph's College (2022)."
+            ]
+          },
+          {
+            title: "Merit Cum Means Scholarship – Pondicherry University",
+            description: "Awarded for outstanding performance in M.Sc. Chemistry."
+          },
+          {
+            title: "Sports & Games Scholarship – St. Joseph's College",
+            description: "Awarded for the sports excellence during the bachelor studies."
+          }
         ];
 
         const additionalInfo = [
@@ -371,6 +389,16 @@
                 </div>
 
               </div>
+
+              {/* About Section */}
+              {info.about && (
+                  <div className="mt-8 pt-6 border-t border-slate-100">
+                      <h3 className="text-lg font-bold text-slate-900 font-serif mb-3">About</h3>
+                      <p className="text-slate-700 leading-relaxed text-justify">
+                          {info.about}
+                      </p>
+                  </div>
+              )}
             </div>
           );
         };
@@ -531,6 +559,36 @@
             </li>
           );
         };
+        
+        const AwardItem = ({ data, icon, colorClass }) => {
+          return (
+            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="flex gap-4 items-start">
+                <span className={`mt-1 text-lg ${colorClass} bg-slate-50 p-2 rounded-full w-10 h-10 flex items-center justify-center shrink-0`}>
+                  <i className={`fas ${icon}`}></i>
+                </span>
+                <div className="flex-grow pt-1.5">
+                   <h3 className="font-bold text-slate-900 font-serif text-lg leading-tight mb-2">{data.title}</h3>
+                   
+                   {data.description && (
+                      <p className="text-slate-700 text-sm">{data.description}</p>
+                   )}
+
+                   {data.items && data.items.length > 0 && (
+                    <ul className="space-y-2 mt-2">
+                      {data.items.map((item, idx) => (
+                        <li key={idx} className="text-slate-700 text-sm flex gap-2.5 items-start">
+                          <i className={`fas fa-circle text-[6px] mt-2 opacity-60 ${colorClass}`}></i>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                   )}
+                </div>
+              </div>
+            </div>
+          );
+        };
 
         const Footer = () => {
           const currentYear = new Date().getFullYear();
@@ -676,11 +734,11 @@
               case 'awards':
                 return (
                   <PageLayout title="Honors & Awards" icon="fa-trophy">
-                    <ul className="space-y-4">
+                    <div className="space-y-4">
                       {honorsAndAwards.map((item, index) => (
-                        <ListItem key={index} text={item} icon="fa-medal" colorClass="text-yellow-500" />
+                        <AwardItem key={index} data={item} icon="fa-medal" colorClass="text-yellow-500" />
                       ))}
-                    </ul>
+                    </div>
                   </PageLayout>
                 );
               
@@ -705,6 +763,5 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
