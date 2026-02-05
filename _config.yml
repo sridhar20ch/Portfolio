@@ -1,0 +1,6 @@
+title: R. Sridhar - Academic Portfolio
+description: Professional academic portfolio and CV for R. Sridhar, Chemistry Researcher.
+theme: jekyll-theme-minimal
+show_downloads: false
+plugins:
+  - jekyll-seo-tag
