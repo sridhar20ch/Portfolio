@@ -8,7 +8,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://www.linkedin.com/in/sridhar-r-chem/",
   orcid: "https://orcid.org/0009-0001-3602-6240",
   twitter: "https://x.com/Sridhar20ch",
-  photo: "https://ui-avatars.com/api/?name=R+Sridhar&background=1e3a8a&color=fff&size=256"
+  photo: "<img src="Photo.png" alt="Profile Photo" width="250">"
 };
 
 export const education: Education[] = [
@@ -17,12 +17,18 @@ export const education: Education[] = [
     institution: "Pondicherry University, India",
     year: "2023 - 2025",
     details: ["Final Grade: 8.75 (CGPA)", "EQF level 7", "University Merit Scholarship (3rd Rank)"]
+     photo: "<p align="right">
+  <img src="PondiUni.png">
+</p>"
   },
   {
     degree: "B.Sc. Chemistry",
     institution: "St. Joseph's College, Tiruchirappalli, India",
     year: "2020 - 2023",
     details: ["Final Grade: 8.38 (CGPA)", "EQF level 6", "Sports team Captain (Ball Badminton)"]
+    photo: "<p align="right">
+  <img src="sjc_logo.png">
+</p>"
   }
 ];
 
