@@ -11,6 +11,7 @@ export const personalInfo: PersonalInfo = {
   photo: "import profileImg from "Photo.png";
 
 export const PROFILE_IMAGE = profileImg;"
+  about: "I am a chemistry graduate trained in synthetic organic chemistry with a strong interest in catalysis and reaction mechanisms. My Master’s thesis focused on developing a cost-efficient synthesis of the deoxy sugar D-rhamnal from D-glucose, emphasizing step economy and minimal purification. This work strengthened my skills in reaction design, problem-solving, and independent laboratory research. I am particularly motivated by research that links molecular structure to reactivity and sustainability, especially in enzyme-inspired catalytic systems. Alongside my academic training, my experience as a collegiate sports team captain has shaped my leadership, teamwork, and persistence in collaborative research settings. I am now seeking PhD training to deepen my mechanistic understanding and contribute original research in chemistry."
 };
 
 export const education: Education[] = [
