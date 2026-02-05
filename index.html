@@ -122,14 +122,23 @@
             degree: "M.Sc. Chemistry",
             institution: "Pondicherry University, India",
             year: "2023 - 2025",
+            logo: "./PondiUni.png",
             details: ["Final Grade: 8.75 (CGPA)", "EQF level 7", "University Merit Scholarship (3rd Rank)"]
           },
           {
             degree: "B.Sc. Chemistry",
             institution: "St. Joseph's College, Tiruchirappalli, India",
             year: "2020 - 2023",
+            logo: "./sjc_logo.png",
             details: ["Final Grade: 8.38 (CGPA)", "EQF level 6", "Sports team Captain (Ball Badminton)"]
           }
+        ];
+
+        const researchInterests = [
+          { name: "Synthetic Organic Chemistry", icon: "fa-flask" },
+          { name: "Catalysis & Reaction Mechanisms", icon: "fa-atom" },
+          { name: "Carbohydrate Chemistry", icon: "fa-cubes" },
+          { name: "Green Chemistry", icon: "fa-leaf" }
         ];
 
         const researchExperience = [
@@ -319,10 +328,10 @@
                 <div className="space-y-6 flex-1 text-center md:text-left">
                   <div className="space-y-4">
                     <div>
-                      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight font-serif mb-2">
+                      <h1 className="text-7xl md:text-8xl font-bold text-slate-900 tracking-tight font-serif mb-3">
                         {info.name}
                       </h1>
-                      <div className="text-academic-blue text-lg font-medium tracking-wide">
+                      <div className="text-academic-blue text-xl font-medium tracking-wide">
                         Chemistry Researcher
                       </div>
                     </div>
@@ -392,8 +401,13 @@
 
               {/* About Section */}
               {info.about && (
-                  <div className="mt-8 pt-6 border-t border-slate-100">
-                      <h3 className="text-lg font-bold text-slate-900 font-serif mb-3">About</h3>
+                  <div className="mt-8 pt-6">
+                      <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-200">
+                        <span className="flex items-center justify-center w-8 h-8 rounded bg-indigo-100 text-academic-blue">
+                            <i className="fas fa-user text-sm"></i>
+                        </span>
+                        <h2 className="text-2xl font-bold text-academic-blue font-serif tracking-tight">About</h2>
+                      </div>
                       <p className="text-slate-700 leading-relaxed text-justify font-serif text-lg">
                           {info.about}
                       </p>
@@ -410,7 +424,7 @@
                 <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-academic-blue text-xl">
                     <i className={`fas ${icon}`}></i>
                 </span>
-                <h2 className="text-3xl font-bold text-slate-900 font-serif tracking-tight">{title}</h2>
+                <h2 className="text-3xl font-bold text-academic-blue font-serif tracking-tight">{title}</h2>
               </div>
               <div>
                 {children}
@@ -452,20 +466,30 @@
 
         const EducationCard = ({ data }) => {
           return (
-            <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6 bg-white p-6 rounded-lg border-l-4 border-academic-blue shadow-sm hover:shadow-md transition-all">
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 font-serif">{data.degree}</h3>
-                <div className="text-slate-600 font-medium mt-1 text-lg">{data.institution}</div>
-                <div className="flex flex-wrap gap-x-3 gap-y-2 mt-4 text-sm">
-                   {data.details.map((detail, i) => (
-                     <span key={i} className="bg-slate-100 text-slate-700 px-3 py-1 rounded-md border border-slate-200">
-                       {detail}
-                     </span>
-                   ))}
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-shadow">
+              <div className="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                {data.logo && (
+                  <div className="shrink-0 flex items-center justify-center bg-slate-50 p-2 rounded-lg border border-slate-100 w-20 h-20">
+                     <img src={data.logo} alt={`${data.institution} logo`} className="w-full h-full object-contain" />
+                  </div>
+                )}
+                <div className="flex-1 flex flex-col md:flex-row justify-between items-start gap-4 w-full">
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 font-serif">{data.degree}</h3>
+                    <div className="text-slate-700 font-medium text-lg mt-1">{data.institution}</div>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                       {data.details.map((detail, i) => (
+                         <span key={i} className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-indigo-50 text-indigo-800 border border-indigo-100">
+                           {detail}
+                         </span>
+                       ))}
+                    </div>
+                  </div>
+                  <div className="text-sm font-mono font-medium text-slate-500 whitespace-nowrap bg-slate-50 px-3 py-1 rounded border border-slate-200">
+                    {data.year}
+                  </div>
                 </div>
-              </div>
-              <div className="text-sm font-bold text-slate-500 font-mono whitespace-nowrap bg-slate-50 px-4 py-2 rounded">
-                {data.year}
               </div>
             </div>
           );
@@ -499,11 +523,11 @@
           const skillList = skills.split(/,(?![^()]*\))/).map(s => s.trim()).filter(s => s);
 
           return (
-            <div className="h-full">
-              <h3 className="text-sm font-bold text-slate-900 mb-4 uppercase tracking-wider border-b border-slate-100 pb-2">{title}</h3>
+            <div className="bg-slate-100 p-6 rounded-lg shadow-sm border border-slate-200">
+              <h3 className="text-md font-bold text-slate-800 mb-4 uppercase tracking-wide text-xs">{title}</h3>
               <div className="flex flex-wrap gap-2">
                 {skillList.map((skill, index) => (
-                  <span key={index} className="px-3 py-1.5 bg-white text-slate-700 text-sm border border-slate-200 rounded shadow-sm hover:border-academic-blue hover:text-academic-blue transition-colors cursor-default">
+                  <span key={index} className="px-3 py-1 bg-white text-slate-700 text-sm rounded-md border border-slate-200 hover:border-indigo-200 transition-colors shadow-sm cursor-default">
                     {skill}
                   </span>
                 ))}
@@ -596,8 +620,10 @@
           return (
             <footer className="bg-white border-t border-slate-200 py-8 mt-auto no-print">
               <div className="container mx-auto px-4 text-center">
-                <div className="text-slate-900 font-serif font-bold text-lg mb-2">R. Sridhar</div>
-                <p className="text-slate-500 text-sm">
+                <p className="text-emerald-700 font-serif italic text-lg mb-2">
+                  "Selectivity is nature’s signature; catalysis is our attempt to imitate it."
+                </p>
+                <p className="text-slate-400 text-xs">
                   © {currentYear} All rights reserved.
                 </p>
               </div>
@@ -629,7 +655,7 @@
                                 <span className="flex items-center justify-center w-8 h-8 rounded bg-indigo-100 text-academic-blue">
                                     <i className="fas fa-graduation-cap text-sm"></i>
                                 </span>
-                                <h2 className="text-2xl font-bold text-slate-800">Education</h2>
+                                <h2 className="text-2xl font-bold text-academic-blue">Education</h2>
                             </div>
                             <div className="space-y-4">
                               {education.map((edu, index) => (
@@ -644,7 +670,7 @@
                               <span className="flex items-center justify-center w-8 h-8 rounded bg-emerald-100 text-emerald-600">
                                   <i className="fas fa-info-circle text-sm"></i>
                               </span>
-                              <h2 className="text-2xl font-bold text-slate-900 font-serif tracking-tight">Additional Information</h2>
+                              <h2 className="text-2xl font-bold text-academic-blue">Additional Information</h2>
                            </div>
                            <ul className="space-y-3">
                             {additionalInfo.map((item, index) => (
@@ -665,7 +691,7 @@
                             <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-academic-blue text-xl">
                                 <i className="fas fa-flask"></i>
                             </span>
-                            <h2 className="text-3xl font-bold text-slate-900 font-serif tracking-tight">Research Experience</h2>
+                            <h2 className="text-3xl font-bold text-academic-blue font-serif tracking-tight">Research Experience</h2>
                           </div>
                           <div className="space-y-8">
                             {researchExperience.map((exp, index) => (
@@ -674,13 +700,33 @@
                           </div>
                      </section>
 
+                     {/* Research Interests */}
+                     <section>
+                        <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-200">
+                            <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-academic-blue text-xl">
+                                <i className="fas fa-lightbulb"></i>
+                            </span>
+                            <h2 className="text-3xl font-bold text-academic-blue font-serif tracking-tight">Research Interests</h2>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {researchInterests.map((item, i) => (
+                             <div key={i} className="bg-white p-5 rounded-lg border border-slate-200 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                               <div className="w-12 h-12 flex items-center justify-center bg-indigo-50 text-academic-blue rounded-full shrink-0 text-lg">
+                                 <i className={`fas ${item.icon}`}></i>
+                               </div>
+                               <span className="font-serif font-medium text-slate-800 text-lg">{item.name}</span>
+                             </div>
+                          ))}
+                        </div>
+                    </section>
+
                      {/* Publications */}
                      <section>
                          <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-200">
                             <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-indigo-50 text-academic-blue text-xl">
                                 <i className="fas fa-book-open"></i>
                             </span>
-                            <h2 className="text-3xl font-bold text-slate-900 font-serif tracking-tight">Publications</h2>
+                            <h2 className="text-3xl font-bold text-academic-blue font-serif tracking-tight">Publications</h2>
                           </div>
                           <div className="space-y-6">
                             {publications.map((pub, index) => (
