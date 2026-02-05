@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ info }) => {
 
            <div className="space-y-4">
             <div>
-              <h1 className="text-6xl md:text-7xl font-bold text-slate-900 tracking-tight font-serif mb-3">
+              <h1 className="text-7xl md:text-8xl font-bold text-slate-900 tracking-tight font-serif mb-3">
                 {info.name}
               </h1>
               <div className="text-academic-blue text-xl font-medium tracking-wide">
