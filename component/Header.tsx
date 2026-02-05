@@ -15,9 +15,8 @@ export const Header: React.FC<HeaderProps> = ({ info }) => {
            <div className="shrink-0">
              <div className="relative">
                 <div className="absolute inset-0 bg-academic-blue/5 rounded-full transform rotate-6 scale-105 pointer-events-none"></div>
-                <img 
-                  src={info.photo} 
-                  alt={info.name} 
+               import { PROFILE_IMAGE } from "./constants";
+               <img src={PROFILE_IMAGE} alt="Sridhar R" />  
                   className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-xl border-4 border-white bg-slate-100"
                 />
              </div>
