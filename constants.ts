@@ -8,7 +8,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://www.linkedin.com/in/sridhar-r-chem/",
   orcid: "https://orcid.org/0009-0001-3602-6240",
   twitter: "https://x.com/Sridhar20ch",
-  photo: "import profileImg from "../assets/profile.jpg";
+  photo: "import profileImg from "Photo.png";
 
 export const PROFILE_IMAGE = profileImg;"
 };
