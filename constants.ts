@@ -101,7 +101,7 @@ export const publications: Publication[] = [
 ];
 
 export const skills: Skills = {
-  experimental: "TLC, Column Chromatography, vacuum filtration, distillation, NMR, ESI-HRMS, FT-IR, UV–Vis spectroscopy",
+  experimental: "TLC, Column Chromatography, Rotary Evaporator, vacuum filtration, distillation, NMR, ESI-HRMS, FT-IR, UV–Vis spectroscopy",
   theoretical: "HPLC, LC–MS, GC–MS, XRD, TGA, AAS, ICP–MS",
   computational: "Molecular modelling (ChemDraw, Spartan, GaussView), DFT studies (Gaussian-09), Molecular docking (PyRx, MGL tools, Discovery Studio), Spectral interpretation (MestreNova, Sisweb)"
 };
