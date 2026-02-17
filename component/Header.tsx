@@ -78,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ info }) => {
             <i className="fa-brands fa-x-twitter text-lg text-slate-900"></i> Twitter
           </a>
           <a
-              href="https://raw.githubusercontent.com/username/repo/main/cv.pdf"
+              href="https://github.com/sridhar20ch/Portfolio/blob/main/CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition-colors shadow-sm whitespace-nowrap"
