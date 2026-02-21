@@ -181,3 +181,4 @@ export const additionalInfo: string[] = [
   "Leadership: Captain, College Ball Badminton Team - led my team to win multiple state level championships.",
   "Languages: English (C1 level), Tamil & Telugu (Native)"
 ];
+export const CV_URL = "https://github.com/sridhar20ch/Portfolio/raw/main/CV.pdf";
