@@ -1,5 +1,6 @@
 import React from 'react';
 import { PersonalInfo } from '../types';
+import { CV_URL } from '../constants';
 
 interface HeaderProps {
   info: PersonalInfo;
@@ -53,6 +54,14 @@ export const Header: React.FC<HeaderProps> = ({ info }) => {
         </div>
 
         <div className="flex flex-row md:flex-col gap-2 w-full md:w-auto mt-4 md:mt-0">
+          <a 
+            href={CV_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex-1 md:flex-none flex items-center justify-center gap-3 bg-academic-blue text-white hover:bg-blue-900 border border-transparent px-5 py-2 rounded transition-all font-medium text-xs uppercase tracking-wider shadow-sm hover:shadow-md"
+          >
+            <i className="fas fa-download text-lg"></i> Download CV
+          </a>
           <a 
             href={info.linkedin} 
             target="_blank" 
