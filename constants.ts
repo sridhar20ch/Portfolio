@@ -41,7 +41,7 @@ export const researchInterests: ResearchInterest[] = [
 export const researchExperience: ResearchExperience[] = [
  {
     role: "Project Associate",
-    duration: "Jan 26 – Present",
+    duration: "Feb 26 – Present",
     title: "Nature-inspired Conversion of Biomass to Biofuel: The Lytic Polysaccharide Monooxygenases Paradigm",
     advisor: "Dr. M. Sankaralingam",
     institution: "National Institute of Technology Calicut, India",
